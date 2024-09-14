@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import ToDoTable from './components/ToDoTable';
-import AddToDOComponent from './components/AddToDOComponent';
+import AddToDOComponent from 'c:/С/ReactCourse_Chapter_11/lab1/src/components/AddToDoComponent';
 
 function App() {
     const [toDos, setToDos] = useState([]);
