@@ -11,5 +11,5 @@ const SearchInput = ({ searchTerm, onSearchChange }) => {
     );
 };
 
-// Додаємо експорт за замовчуванням
+
 export default SearchInput;
