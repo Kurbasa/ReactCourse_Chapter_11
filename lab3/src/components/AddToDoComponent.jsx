@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddToDOComponent = ({ title, onTitleChange, onSubmit }) => {
+const AddToDoComponent = ({ title, onTitleChange, onSubmit }) => {
   return (
     <form className="add-todo-form" onSubmit={onSubmit}>
       <input
@@ -16,4 +16,4 @@ const AddToDOComponent = ({ title, onTitleChange, onSubmit }) => {
   );
 };
 
-export default AddToDOComponent;
+export default AddToDoComponent;

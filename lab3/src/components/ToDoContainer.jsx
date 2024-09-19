@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 } from "uuid";
 import SearchInput from "./SearchInput";
-import AddToDOComponent from "./AddToDoComponent";
+import AddToDoComponent from "./AddToDoComponent";
 import ToDoTable from "./ToDoTable";
 import ToDoEdit from "./ToDoEdit";
 
@@ -60,7 +60,7 @@ const ToDoContainer = () => {
         searchTerm={searchTerm}
         onSearchChange={handleSearchChange}
       />
-      <AddToDOComponent
+      <AddToDoComponent
         title={newToDo?.title}
         onTitleChange={handleNewTitleChange}
         onSubmit={handleSubmit}
