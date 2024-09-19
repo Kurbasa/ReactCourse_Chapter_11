@@ -1,6 +1,7 @@
 import "./App.css";
 import PageTitle from "./components/PageTitle";
 import ToDoContainer from "./components/ToDoContainer";
+import ToDoTable from "./components/ToDoTable";
 
 function App() {
   return (
