@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 } from "uuid";
 import SearchInput from "./SearchInput";
-import AddToDOComponent from "./AddToDOComponent";
+import AddToDOComponent from "./AddToDoComponent";
 import ToDoTable from "./ToDoTable";
 import ToDoEdit from "./ToDoEdit";
 
