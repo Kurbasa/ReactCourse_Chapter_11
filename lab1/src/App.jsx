@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import ToDoTable from '../../lab3/src/components/ToDoTable';
+import ToDoTable from '../../lab4/src/src/components/ToDoTable';
 import AddToDOComponent from '../components/AddToDOComponent';
-import SearchInput from '../../lab3/src/components/SearchInput';
+import SearchInput from '../../lab4/src/src/components/SearchInput';
 
 function App() {
     const [toDos, setToDos] = useState([]);

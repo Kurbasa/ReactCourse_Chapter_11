@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { v4 } from "uuid";
 import SearchInput from "./SearchInput";
 import AddToDoComponent from "./AddToDoComponent";
 import ToDoTable from "./ToDoTable";
 import ToDoEdit from "./ToDoEdit";
+import useGetAllToDo from "./Hooks/UseToDos.js";
 
 const ToDoContainer = () => {
-  const [toDos, setToDos] = useState([]);
+  const { isLoading, data, setData } = useGetAllToDo(); // Get data from API
   const [newToDo, setNewToDo] = useState({ title: "" });
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedToDo, setSelectedToDo] = useState(null);
@@ -19,30 +19,30 @@ const ToDoContainer = () => {
   function handleSubmit(event) {
     event.preventDefault();
     if (newToDo && newToDo.title.trim() !== "") {
-      setToDos([...toDos, { ...newToDo, id: v4() }]);
-      setNewToDo({ title: "" }); // Очищуємо форму після додавання
+      setData([...data, { ...newToDo, id: v4() }]); // Add to the API data
+      setNewToDo({ title: "" });
     } else {
       alert("Please enter a task title.");
     }
   }
 
   function handleDelete(id) {
-    setToDos(toDos.filter((toDo) => toDo.id !== id));
+    setData(data.filter((toDo) => toDo.id !== id)); // Remove from API data
   }
 
   function handleEdit(toDo) {
-    setSelectedToDo(toDo); // Встановлюємо вибране завдання
-    setIsEditing(true); // Увімкнути режим редагування
+    setSelectedToDo(toDo);
+    setIsEditing(true);
   }
 
   function handleSave(updatedToDo) {
-    setToDos(toDos.map((td) => (td.id === updatedToDo.id ? updatedToDo : td))); // Оновлюємо список завдань
-    setIsEditing(false); // Вимикаємо режим редагування
+    setData(data.map((td) => (td.id === updatedToDo.id ? updatedToDo : td)));
+    setIsEditing(false);
     setSelectedToDo(null);
   }
 
   function handleCancelEdit() {
-    setIsEditing(false); // Вимикаємо режим редагування
+    setIsEditing(false);
     setSelectedToDo(null);
   }
 
@@ -50,9 +50,13 @@ const ToDoContainer = () => {
     setSearchTerm(event.target.value);
   }
 
-  const filteredToDos = toDos.filter((toDo) =>
+  const filteredToDos = data.filter((toDo) =>
     toDo.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -70,7 +74,6 @@ const ToDoContainer = () => {
         onDelete={handleDelete}
         onEdit={handleEdit}
       />
-
       {isEditing && selectedToDo && (
         <ToDoEdit
           toDo={selectedToDo}
