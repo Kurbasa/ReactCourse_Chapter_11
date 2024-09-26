@@ -6,7 +6,7 @@ import ToDoEdit from "./ToDoEdit";
 import useGetAllToDo from "./Hooks/UseToDos.js";
 
 const ToDoContainer = () => {
-  const { isLoading, data, setData } = useGetAllToDo(); // Get data from API
+  const { isLoading, data, setData } = useGetAllToDo();
   const [newToDo, setNewToDo] = useState({ title: "" });
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedToDo, setSelectedToDo] = useState(null);
@@ -19,7 +19,7 @@ const ToDoContainer = () => {
   function handleSubmit(event) {
     event.preventDefault();
     if (newToDo && newToDo.title.trim() !== "") {
-      setData([...data, { ...newToDo, id: v4() }]); // Add to the API data
+      setData([...data, { ...newToDo, id: v4() }]);
       setNewToDo({ title: "" });
     } else {
       alert("Please enter a task title.");
@@ -27,7 +27,7 @@ const ToDoContainer = () => {
   }
 
   function handleDelete(id) {
-    setData(data.filter((toDo) => toDo.id !== id)); // Remove from API data
+    setData(data.filter((toDo) => toDo.id !== id));
   }
 
   function handleEdit(toDo) {
