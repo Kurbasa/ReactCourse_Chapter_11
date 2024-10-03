@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import useLoading from '../components/useLoading'
+import useLoading from './useLoading'
 
 const useGetAllToDo = () => {
   const {isLoading,setIsLoading} = useLoading()
