@@ -1,13 +1,13 @@
-import "./App.css";
+import React from "react";
 import PageTitle from "./components/PageTitle";
 import ToDoContainer from "./components/ToDoContainer";
 
 function App() {
   return (
-    <>
-      <PageTitle title={"To Do App"} />
+    <div>
+      <PageTitle title="My ToDo App" />
       <ToDoContainer />
-    </>
+    </div>
   );
 }
 
