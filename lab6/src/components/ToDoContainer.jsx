@@ -47,7 +47,9 @@ const ToDoContainer = () => {
 
   return (
     <div>
-      <Loading isLoading={isLoading}>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
         <>
           <AddToDoComponent
             title={newToDo.title}
@@ -60,17 +62,13 @@ const ToDoContainer = () => {
             onSearchChange={handleSearchChange}
           />
 
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            <ToDoTable
-              toDos={filteredToDos}
-              onDelete={handleDelete}
-              onEdit={handleEdit}
-            />
-          )}
+          <ToDoTable
+            toDos={filteredToDos}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
+          />
         </>
-      </Loading>
+      )}
     </div>
   );
 };
