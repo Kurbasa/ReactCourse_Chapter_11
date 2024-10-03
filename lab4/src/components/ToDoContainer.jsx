@@ -3,7 +3,7 @@ import SearchInput from "./SearchInput";
 import AddToDoComponent from "./AddToDoComponent";
 import ToDoTable from "./ToDoTable";
 import ToDoEdit from "./ToDoEdit";
-import useGetAllToDo from "./Hooks/UseToDos.js";
+import useGetAllToDo from "../Hooks/useGetAllToDo.js";
 
 const ToDoContainer = () => {
   const { isLoading, data, setData } = useGetAllToDo();
