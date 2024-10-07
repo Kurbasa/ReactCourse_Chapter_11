@@ -51,9 +51,6 @@ const ToDoContainer = () => {
           searchTerm={searchTerm}
           onSearchChange={handleSearchChange}
         />
-
-        {isLoading && <p>Loading...</p>}
-
         {!isLoading && (
           <ToDoTable toDos={filteredToDos} onDelete={handleDelete} />
         )}

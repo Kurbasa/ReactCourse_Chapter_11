@@ -1,16 +1,24 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap-grid.rtl.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-const Spinner = () => (
-  <div className="spinner-wrapper">
-    <div className="custom-spinner" role="status">
-      <span className="visually-hidden">Loading...</span>
+const Spinner = () => {
+  return (
+    <div className="d-flex justify-content-center">
+      <div className="spinner-border" role="status">
+        <span className="sr-only"></span>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Loading = ({ isLoading, children }) => {
-  return isLoading ? <Spinner /> : <>{children}</>;
+  return (
+    <React.Fragment>
+      {isLoading && <Spinner />}
+
+      {children}
+    </React.Fragment>
+  );
 };
 
 export default Loading;

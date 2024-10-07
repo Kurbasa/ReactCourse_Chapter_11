@@ -54,10 +54,15 @@ const ToDoContainer = () => {
             onTitleChange={handleNewTitleChange}
             onSubmit={handleSubmit}
           />
-
           <SearchInput
             searchTerm={searchTerm}
             onSearchChange={handleSearchChange}
+          />
+
+          <ToDoTable
+            toDos={filteredToDos}
+            onDelete={handleDelete}
+            onEdit={handleEdit}
           />
         </>
       </Loading>
