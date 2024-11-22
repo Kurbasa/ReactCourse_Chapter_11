@@ -8,6 +8,7 @@ const ToDoTable = ({ toDos, onDelete, onEdit }) => {
           <th>Id</th>
           <th>Title</th>
           <th>Actions</th>
+          <></>
         </tr>
       </thead>
       <tbody>
